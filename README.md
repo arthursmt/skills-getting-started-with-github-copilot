@@ -14,3 +14,11 @@ Remember, it's self-paced so feel free to take a break! ☕️
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
+
+## Nota sobre cache da API
+
+Ao assinar ou remover um participante pelo formulário, o frontend faz requisições à API em `/activities`.
+Em alguns ambientes o navegador/proxy pode retornar respostas em cache, fazendo com que a lista de participantes só seja atualizada após recarregar a página. Para evitar esse problema, o projeto agora força `cache: "no-store"` nas chamadas `fetch` do frontend (arquivo `src/static/app.js`).
+
+Se você ainda observar comportamentos estranhos, atualize o navegador ou verifique caches/proxies intermediários.
+
